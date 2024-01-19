@@ -1,4 +1,5 @@
 ﻿
+
 namespace CashManager;
 
 public class CommandResult<T, E>
@@ -19,5 +20,10 @@ public class CommandResult<T, E>
 
     public static CommandResult<T, E> Ok(T value) {
         return new CommandResult<T, E>(value, default);
+    }
+
+    internal static CommandResult<T, E> Err(E value)
+    {
+        return new CommandResult<T, E>(default, value);
     }
 }
